@@ -1,1 +1,11 @@
-<p>pokecard works!</p>
+<mat-card class="pokecard">
+  <img mat-card-image [src]="image">
+  <mat-card-content>
+    <div class="flex-center">
+      {{ name }}
+    </div>
+    <div>
+      url: {{ url }}
+    </div>
+  </mat-card-content>
+</mat-card>

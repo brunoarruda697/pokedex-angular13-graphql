@@ -9,7 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { PokecardComponent } from './components/pokecard/pokecard.component';
 import { RestComponent } from './page/rest/rest.component';
 import { GraphqlComponent } from './page/graphql/graphql.component';
-
+import {MatButtonModule} from '@angular/material/button';
+import {MatCard, MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,9 @@ import { GraphqlComponent } from './page/graphql/graphql.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     GraphQLModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

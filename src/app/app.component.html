@@ -1,8 +1,8 @@
 <div class="page-container">
   <div class="flex-center">
-    <button (click)="onHomePage()">HOME</button>
-    <button (click)="onRestPage()">REST</button>
-    <button (click)="onGraphqlPage()">GRAPHQL</button>
+    <button mat-raised-button color="secondary" (click)="onHomePage()">HOME</button>
+    <button mat-raised-button color="primary" (click)="onRestPage()">REST</button>
+    <button mat-raised-button color="primary" (click)="onGraphqlPage()">GRAPHQL</button>
   </div>
   <router-outlet></router-outlet>
 </div>
