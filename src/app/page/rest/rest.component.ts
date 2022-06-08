@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Pokemon } from './rest.model';
 import { RestService } from './rest.service';
 
 @Component({
@@ -8,11 +9,13 @@ import { RestService } from './rest.service';
 })
 export class RestComponent implements OnInit {
 
+  pokemons: Array<Pokemon> = [];
+
   constructor(private restService: RestService) { }
 
   ngOnInit(): void {
-    this.restService.getPokemons(5).subscribe((value) => {
-      console.log(value, 'value');
+    this.restService.getPokemons(5).subscribe((pokemons) => {
+      this.pokemons = pokemons;
     })
   }
 

@@ -1,11 +1,11 @@
-<mat-card class="pokecard">
-  <img mat-card-image [src]="image">
+<mat-card>
+  <img mat-card-image [src]="pokemon.image">
   <mat-card-content>
     <div class="flex-center">
-      {{ name }}
+      {{ pokemon.name }}
     </div>
     <div>
-      url: {{ url }}
+      <a [href]="pokemon.url">{{ pokemon.name }}</a>
     </div>
   </mat-card-content>
 </mat-card>
