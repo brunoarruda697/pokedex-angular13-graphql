@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { gql } from '@apollo/client/core';
+import { Apollo } from 'apollo-angular';
 import { Pokemon } from '../rest/rest.model';
-import { RestService } from '../rest/rest.service';
 
 @Component({
   selector: 'app-graphql',
@@ -11,12 +12,24 @@ export class GraphqlComponent implements OnInit {
 
   pokemons: Array<Pokemon> = [];
 
-  constructor(private restService: RestService) { }
+  constructor(private apollo: Apollo) { }
 
   ngOnInit(): void {
-    this.restService.getPokemons(5).subscribe((pokemons) => {
+    this.apollo.watchQuery<{pokemons: Array<Pokemon>}>({
+      query: gql`query GetPokemons($times: Int) {
+        pokemons(times: $times) {
+          name
+          url
+          image
+        }
+      }`,
+      variables: {
+        times: 5
+      }
+    }).valueChanges.subscribe((result) => {
+      const { data } = result;
+      const { pokemons } = data;
       this.pokemons = pokemons;
     })
   }
-
 }

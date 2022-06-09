@@ -9,8 +9,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { PokecardComponent } from './components/pokecard/pokecard.component';
 import { RestComponent } from './page/rest/rest.component';
 import { GraphqlComponent } from './page/graphql/graphql.component';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCard, MatCardModule} from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule} from '@angular/material/card';
+import { APOLLO_OPTIONS } from 'apollo-angular';
+import { HttpLink } from 'apollo-angular/http';
+import { InMemoryCache } from '@apollo/client/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +30,20 @@ import {MatCard, MatCardModule} from '@angular/material/card';
     MatButtonModule,
     MatCardModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APOLLO_OPTIONS,
+      useFactory: (httpLink: HttpLink) => {
+        return {
+          cache: new InMemoryCache(),
+          link: httpLink.create({
+            uri: 'http://localhost:8080/graphql',
+          }),
+        };
+      },
+      deps: [HttpLink],
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
