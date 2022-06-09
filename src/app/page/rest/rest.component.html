@@ -1,7 +1,7 @@
-<div class="rest-container">
+<div class="rest-container h-full">
     <div class="left-side">
-        <div style="margin-bottom: 10px;" *ngFor="let pokemon of pokemons">
-            <app-pokecard [pokemon]="pokemon"></app-pokecard>
+        <div *ngFor="let pokemon of pokemons">
+            <app-pokecard class="d-flex w-full h-full" [pokemon]="pokemon"></app-pokecard>
         </div>
     </div>
     <div class="right-side">

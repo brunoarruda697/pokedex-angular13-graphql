@@ -5,19 +5,24 @@ import { Pokemon } from './rest.model';
 
 const restMock: Array<Pokemon> = [
     {
-        image: 'https://picsum.photos/50/50',
+        image: 'https://picsum.photos/100/100',
         name: 'bulbasaur',
         url: 'https://pokeapi.co/api/v2/pokemon/1'
     },
     {
-        image: 'https://picsum.photos/50',
+        image: 'https://picsum.photos/100/100',
         name: 'ivysaur',
         url: 'https://pokeapi.co/api/v2/pokemon/2'
     },
     {
-        image: 'https://picsum.photos/50',
+        image: 'https://picsum.photos/100/100',
         name: 'venusaur',
         url: 'https://pokeapi.co/api/v2/pokemon/3'
+    },
+    {
+        image: 'https://picsum.photos/100/100',
+        name: 'batata',
+        url: 'https://pokeapi.co/api/v2/pokemon/4'
     },
 ];
 

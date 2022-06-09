@@ -1,11 +1,15 @@
-<mat-card>
-  <img mat-card-image [src]="pokemon.image">
-  <mat-card-content>
-    <div class="flex-center">
-      {{ pokemon.name }}
-    </div>
-    <div>
-      <a [href]="pokemon.url">{{ pokemon.name }}</a>
-    </div>
+<mat-card class="w-full">
+  <mat-card-content class="d-flex flex-shrink">
+    <img mat-card-image [src]="pokemon.image">
   </mat-card-content>
+  <mat-card-footer>
+    <div class="flex-center display-column">
+      <div>
+        {{ pokemon.name }}
+      </div>
+      <div>
+        <a [href]="pokemon.url">{{ pokemon.name }}</a>
+      </div>
+    </div>
+  </mat-card-footer>
 </mat-card>
