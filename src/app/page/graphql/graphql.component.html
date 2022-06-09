@@ -5,6 +5,8 @@
         </div>
     </div>
     <div class="sides light-coral">
-
+        <div *ngFor="let pokemon of pokemons">
+            <app-pokecard [pokemon]="pokemon"></app-pokecard>
+        </div>
     </div>
 </div>
