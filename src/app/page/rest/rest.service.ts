@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Pokemon } from './rest.model';
@@ -28,12 +28,15 @@ const restMock: Array<Pokemon> = [
 
 @Injectable({providedIn: 'root'})
 export class RestService {
-    url = 'https://graphql-agreggator.herokuapp.com/v1/poc';
+    url = 'http://localhost:8080/v1/poc';
 
     constructor(private httpClient: HttpClient) { }
     
     getPokemons(times: number): Observable<Array<Pokemon>> {
-        // return this.httpClient.get<Array<Pokemon>>(`${this.url}/${times.toString()}`);
-        return of(restMock);
+        var headers = new HttpHeaders();
+        headers.append('Access-Control-Allow-Origin', '*');
+
+        return this.httpClient.get<Array<Pokemon>>(`${this.url}/${times.toString()}`, { headers });
+        // return of(restMock);
     }
 }

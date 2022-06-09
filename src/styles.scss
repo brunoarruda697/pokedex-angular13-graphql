@@ -13,18 +13,26 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 	flex-direction: column;
 }
 
-.d-flex {
-	display: flex !important;
-}
-
-.w-full {
-	width: 100%;
-}
-
-.h-full {
+:host {
 	height: 100%;
 }
 
-.flex-shrink {
-	flex-shrink: 1;
+.rest-container {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: auto;
+}
+
+.left-side {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+	grid-auto-rows: minmax(min-content, max-content);
+	grid-gap: 10px;
+	padding: 10px;
+	background-color: lightblue;
+}
+
+.right-side {
+	padding: 10px;
+	background-color: lightcoral;
 }

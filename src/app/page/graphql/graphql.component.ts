@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Pokemon } from '../rest/rest.model';
+import { RestService } from '../rest/rest.service';
 
 @Component({
   selector: 'app-graphql',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GraphqlComponent implements OnInit {
 
-  constructor() { }
+  pokemons: Array<Pokemon> = [];
+
+  constructor(private restService: RestService) { }
 
   ngOnInit(): void {
+    this.restService.getPokemons(5).subscribe((pokemons) => {
+      this.pokemons = pokemons;
+    })
   }
 
 }

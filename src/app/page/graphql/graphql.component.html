@@ -1,1 +1,13 @@
-<p>graphql works!</p>
+<div class="rest-container h-full">
+    <div class="left-side">
+        <div
+            style="height: fit-content;"
+            *ngFor="let pokemon of pokemons"
+        >
+            <app-pokecard [pokemon]="pokemon"></app-pokecard>
+        </div>
+    </div>
+    <div class="right-side">
+
+    </div>
+</div>
