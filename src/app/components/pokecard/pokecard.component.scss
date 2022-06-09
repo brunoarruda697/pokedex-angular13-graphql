@@ -1,4 +1,12 @@
 mat-card {
     border-radius: 10px;
     overflow: hidden;
+
+    mat-card-content {
+        margin: 0;
+    }
+
+    mat-card-footer {
+        padding: 10px;
+    }
 }
